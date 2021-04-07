@@ -1,0 +1,98 @@
+.custom-input-area{
+    height: 50px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.custom-input-area input,.custom-input-area select{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: none;
+    padding-top: 20px;
+    bottom: 0;
+    outline: none;
+    font-weight: 500;
+}
+.custom-input-area label{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    border-bottom: 1px solid #222;
+}
+.custom-input-area label span{
+    position: absolute;
+    bottom: 0;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all .3s ease;
+}
+.custom-input-area input:focus + label span, 
+.custom-input-area input:valid + label span,
+.custom-input-area select:focus + label span,
+.custom-input-area select:valid + label span{
+    transform: translateY(-100%);
+    color: #9165f8;
+}
+.custom-input-area input:focus + label, 
+.custom-input-area input:valid + label{
+    border-bottom: 2px solid #9165f8;
+}
+.btn-alt-orange{  
+    color: #fff;
+    background-color: #FF6E40;
+    border-color: #FF6E40;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.no-style{
+    border: none;
+    background: none;
+    color: #FF6E40;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.or-devider{
+    background: #fff;
+    font-size: 22px;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.or-devider::after{
+    content: "Or";
+    position: absolute;
+    width: 50px;
+    height: 22px;
+    background: #fff;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+.social-login{
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    margin-bottom: 15px;
+    background: #fff;
+}
+.social-login img{
+    width: 30px;
+    left: 5px;
+}
+.social-login span{
+    display: block;
+    width: clac(100% - 50px)!important;
+    text-align: center;
+}
+.custom-input-area #date + label span{
+    transform: translateY(-100%);
+}
