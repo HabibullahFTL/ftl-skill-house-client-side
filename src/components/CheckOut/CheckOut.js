@@ -22,12 +22,16 @@ const CheckOut = () => {
 
 
     const confirmOrder = () => {
-        const {_id,courseFee} = course;
+        const date = new Date();
+        const {_id,courseFee,courseTitle} = course;
         const orderedCourse = {
             courseId: _id,
             courseFee,
+            courseTitle,
             count:1,
-            uid:loginUserDetails.uid
+            paymentStatus: "Paid",
+            uid:loginUserDetails.uid,
+            orderedAt: date.toISOString()
         }
         fetch('http://localhost:3001/add-order', {
             method: "POST",
@@ -41,6 +45,7 @@ const CheckOut = () => {
             console.log(data);
         })
     }
+
     return (
         <div className="container mt-2">
             <h3>Check Out</h3>

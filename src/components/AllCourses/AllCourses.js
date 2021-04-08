@@ -17,9 +17,17 @@ const AllCourses = () => {
     },[])
     return (
         <div className="container">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                {allCourse.map(course => <Course course={course} key={course._id}></Course>)}
-            </div>
+            {
+                allCourse.length !== 0 ? 
+                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                        {allCourse.map(course => <Course course={course} key={course._id}></Course>)}
+                    </div>
+                    :<div className="py-5 d-flex justify-content-center align-items-center">
+                        <div className="spinner-border text-info" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+            }
         </div>
 
     );

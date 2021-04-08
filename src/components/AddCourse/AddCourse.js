@@ -19,8 +19,9 @@ const AddCourse = () => {
         fileUploadHandle(thumbnailFile, thumbnailDir, { courseTitle, courseInstructor, courseFee })
             .then(data => {
                 if (!data.message) {
+                    const date = new Date();
                     // For sending data to database
-                    const dbCourseInfo = { ...data };
+                    const dbCourseInfo = { ...data,createdAt:date.toISOString() };
                     fetch('http://localhost:3001/create-course', {
                         method: "POST",
                         headers: {

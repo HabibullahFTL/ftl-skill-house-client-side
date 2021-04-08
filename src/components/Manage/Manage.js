@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './AdminTools.css';
+import './Manage.css';
 import { Link } from "react-router-dom";
 import SideBar from '../SideBar/SideBar';
 
@@ -17,6 +17,21 @@ const AdminTools = () => {
             setAllCourse(data);
         })
     },[])
+    const deleteCourse = (id)=>{
+        fetch(`http://localhost:3001/delete-course/?course_id=${id}`,{
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if (data) {
+                const newCourses = allCourse.filter(course=>course._id !== id);
+                setAllCourse(newCourses);
+            }
+        })
+    }
     return (
         <div className="admin-tools">
             <SideBar></SideBar>
@@ -35,13 +50,13 @@ const AdminTools = () => {
                         {
                             allCourse.map(course=>{
                                 return(
-                                    <tr>
+                                    <tr key={course._id}>
                                         <th scope="row">{course.courseTitle}</th>
                                         <td>{course.courseInstructor}</td>
                                         <td>${course.courseFee}</td>
                                         <td>
                                             <Link to="/edit-course" className="btn btn-success me-2 mb-2"><i className="fas fa-edit"></i></Link>
-                                            <button className="btn btn-danger me-2 mb-2"><i className="fas fa-trash-alt"></i></button>
+                                            <button className="btn btn-danger me-2 mb-2" onClick={()=>deleteCourse(course._id)}><i className="fas fa-trash-alt"></i></button>
                                         </td>
                                     </tr>
                                 )

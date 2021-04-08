@@ -13,7 +13,7 @@ import LogIn from './components/LogIn/LogIn';
 import { createContext, useState } from 'react';
 import Orders from './components/Orders/Orders';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import AdminTools from './components/AdminTools/AdminTools';
+import Manage from './components/Manage/Manage';
 import CheckOut from './components/CheckOut/CheckOut';
 import AddCourse from './components/AddCourse/AddCourse';
 
@@ -34,7 +34,7 @@ function App() {
         <Router>
           <Switch>
             <PrivateRoute path="/admin-tools">
-              <AdminTools></AdminTools>
+              <Manage></Manage>
             </PrivateRoute>
 
             <PrivateRoute path="/add-course">
