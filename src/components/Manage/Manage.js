@@ -3,22 +3,17 @@ import './Manage.css';
 import { Link } from "react-router-dom";
 import SideBar from '../SideBar/SideBar';
 
-const AdminTools = () => {
+const Manage = () => {
     const [allCourse,setAllCourse] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:3001/all-courses',{
-            method: "POST",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
+        fetch('https://fathomless-meadow-17905.herokuapp.com/all-courses')
         .then(res=>res.json())
         .then(data=>{
             setAllCourse(data);
         })
     },[])
     const deleteCourse = (id)=>{
-        fetch(`http://localhost:3001/delete-course/?course_id=${id}`,{
+        fetch(`https://fathomless-meadow-17905.herokuapp.com/delete-course/?course_id=${id}`,{
             method: "POST",
             headers:{
                 "Content-Type":"application/json"
@@ -69,4 +64,4 @@ const AdminTools = () => {
     );
 };
 
-export default AdminTools;
+export default Manage;

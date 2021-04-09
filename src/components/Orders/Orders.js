@@ -6,12 +6,7 @@ const Orders = () => {
     const [loginUserDetails, setLoginUserDetails] = useContext(UserContext);
     const [orders,setOrders] = useState();
     useEffect(()=>{
-        fetch(`http://localhost:3001/orders/?uid=${loginUserDetails.uid}`,{
-            method: "POST",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
+        fetch(`https://fathomless-meadow-17905.herokuapp.com/orders/?uid=${loginUserDetails.uid}`)
         .then(res=>res.json())
         .then(data=>{
             setOrders(data);

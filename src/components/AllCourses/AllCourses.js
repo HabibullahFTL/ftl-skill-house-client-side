@@ -4,12 +4,7 @@ import Course from '../Course/Course';
 const AllCourses = () => {
     const [allCourse,setAllCourse] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:3001/all-courses',{
-            method: "POST",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
+        fetch('https://fathomless-meadow-17905.herokuapp.com/all-courses')
         .then(res=>res.json())
         .then(data=>{
             setAllCourse(data);

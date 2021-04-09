@@ -22,7 +22,7 @@ const AddCourse = () => {
                     const date = new Date();
                     // For sending data to database
                     const dbCourseInfo = { ...data,createdAt:date.toISOString() };
-                    fetch('http://localhost:3001/create-course', {
+                    fetch('https://fathomless-meadow-17905.herokuapp.com/create-course', {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"

@@ -8,12 +8,7 @@ const CheckOut = () => {
     const [course, setCourse] = useState({});
     const [loginUserDetails, setLoginUserDetails] = useContext(UserContext);
     useEffect(() => {
-        fetch(`http://localhost:3001/course/?course_id=${_id}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
+        fetch(`https://fathomless-meadow-17905.herokuapp.com/course/?course_id=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setCourse(data);
@@ -33,7 +28,7 @@ const CheckOut = () => {
             uid:loginUserDetails.uid,
             orderedAt: date.toISOString()
         }
-        fetch('http://localhost:3001/add-order', {
+        fetch('https://fathomless-meadow-17905.herokuapp.com/add-order', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
